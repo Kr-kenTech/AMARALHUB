@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMARALHUB</title>
+    <link rel="stylesheet" href="/Login/login.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body><a href="/Inicio/inicio.html" id="btn-voltar">← Voltar</a>
+<section id="sessao2">
+    <div id="imag">
+        <img src="/logo.png" alt="" width="200px" height="200px">
+    </div>
+
+    <div id="login">
+        <h3>Login</h3>
+        
+        <form action="" id="cadastracao">
+                <label for="Email">Email:</label>
+                <input type="text" id="email" name="email" placeholder="Digite seu email" required>
+            
+                <label for="Passaword">Senha:</label>
+                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+                <nav> <div style="margin-top: 15px; display: flex; justify-content: center;">
+                <div id="g_id_onload"
+                    data-client_id="520168549437-2cfgo4k4fet41tu2arevpomu8ouud402.apps.googleusercontent.com"
+                    data-login_uri="http://localhost:3000/auth/google/callback"
+                    data-auto_prompt="false">
+                </div>
+                <div class="g_id_signin"
+                    data-type="standard"
+                    data-size="large"
+                    data-theme="outline"
+                    data-text="sign_in_with"
+                    data-shape="pill"
+                    data-logo_alignment="left">
+                </div>
+        </div></nav>
+                <button id="envi">Enviar</button>
+        </form>
+    </div> 
+</section>
+</body>
+</html>
