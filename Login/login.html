@@ -7,39 +7,77 @@
     <link rel="stylesheet" href="/Login/login.css">
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
-<body><a href="/Inicio/inicio.html" id="btn-voltar">← Voltar</a>
-<section id="sessao2">
-    <div id="imag">
-        <img src="/logo.png" alt="" width="200px" height="200px">
-    </div>
+<body>
+    <a href="/Inicio/inicio.html" id="btn-voltar">← Voltar</a>
+    <section id="sessao2">
+        <div id="imag">
+            <img src="/logo.png" alt="" width="200px" height="200px">
+        </div>
 
-    <div id="login">
-        <h3>Login</h3>
-        
-        <form action="" id="cadastracao">
-                <label for="Email">Email:</label>
+        <div id="login">
+            <h3>Login</h3>
+            
+            <form id="cadastracao">
+                <label for="email">Email:</label>
                 <input type="text" id="email" name="email" placeholder="Digite seu email" required>
             
-                <label for="Passaword">Senha:</label>
+                <label for="password">Senha:</label>
                 <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
-                <nav> <div style="margin-top: 15px; display: flex; justify-content: center;">
-                <div id="g_id_onload"
-                    data-client_id="520168549437-2cfgo4k4fet41tu2arevpomu8ouud402.apps.googleusercontent.com"
-                    data-login_uri="http://localhost:3000/auth/google/callback"
-                    data-auto_prompt="false">
-                </div>
-                <div class="g_id_signin"
-                    data-type="standard"
-                    data-size="large"
-                    data-theme="outline"
-                    data-text="sign_in_with"
-                    data-shape="pill"
-                    data-logo_alignment="left">
-                </div>
-        </div></nav>
-                <button id="envi">Enviar</button>
-        </form>
-    </div> 
-</section>
+                
+                <nav> 
+                    <div style="margin-top: 15px; display: flex; justify-content: center; flex-direction: column; align-items: center;">
+                        <!-- Substitua o data-client_id abaixo pelo seu ID real gerado no Google Cloud -->
+                        <div id="g_id_onload"
+                            data-client_id="520168549437-v1ucd8leun5vjt8r6c94c1fth6htkdu1.apps.googleusercontent.com"
+                            data-login_uri="http://localhost:3000/auth/google/callback"
+                            data-auto_prompt="false">
+                        </div>
+                        <div class="g_id_signin"
+                            data-type="standard"
+                            data-size="large"
+                            data-theme="outline"
+                            data-text="sign_in_with"
+                            data-shape="pill"
+                            data-logo_alignment="left">
+                        </div>
+                    </div>
+                </nav>
+                
+                <button type="submit" id="envi">Enviar</button>
+            </form>
+        </div> 
+    </section>
+
+    <!-- Script para enviar os dados do formulário via JavaScript para o backend -->
+    <script>
+        document.getElementById('cadastracao').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const resultado = await response.json();
+
+                if (resultado.sucesso) {
+                    alert('Login realizado com sucesso!');
+                    window.location.href = '/Dashboard/dashboard.html';
+                } else {
+                    alert(resultado.erro || 'Erro ao realizar login.');
+                }
+            } catch (error) {
+                console.error('Erro na requisição:', error);
+                alert('Erro ao conectar com o servidor.');
+            }
+        });
+    </script>
 </body>
 </html>
