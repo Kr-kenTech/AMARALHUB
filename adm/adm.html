@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmaralHub - Gestão de Usuários</title>
+    <link rel="stylesheet" href="adm.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="/logo2.png" alt="Logo AH">
+        </div>
+
+        <nav class="menu">
+            <a href="#" class="menu-item" data-i18n="menu.inicio">Início</a>
+            <a href="#" class="menu-item" data-i18n="menu.visaoGeral">Visão Geral</a>
+            <a href="#" class="menu-item" data-i18n="menu.cardapio">Cardápio e Ingredientes</a>
+            <a href="#" class="menu-item active" data-i18n="menu.gestao">Gestão de Usuários</a>
+            <a href="#" class="menu-item" data-i18n="menu.relatorio">Relatório</a>
+            <a href="configuracoes.html" class="menu-item" data-i18n="menu.config">Configurações</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="usuario">
+                <div class="usuario-icon">👤</div>
+                <span>Administrador</span>
+            </div>
+
+            <a href="#" class="sair">
+                <span class="sair-icon">➔</span>
+                <span data-i18n="menu.sair">Sair</span>
+            </a>
+        </div>
+    </aside>
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+        <div class="main-wrapper">
+
+            <!-- BARRA SUPERIOR -->
+            <div class="top-bar">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Buscar usuário..." data-i18n-placeholder="topbar.search">
+                    <span class="scan-icon">👁️</span>
+                </div>
+
+                <div class="top-actions">
+                    <button class="icon-btn notification-btn" title="Notificações">
+                        🔔
+                        <span class="badge">3</span>
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- CABEÇALHO DA PÁGINA -->
+            <header id="introducao">
+                <h1 data-i18n="users.title">Gestão de Usuários</h1>
+                <p data-i18n="users.desc">Gerencie alunos, professores e administradores.</p>
+            </header>
+
+
+            <!-- CARDS DE ESTATÍSTICAS (4 CARDS VERTICAIS/GRID LIMPO) -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon blue">👥</div>
+                    <div class="stat-info">
+                        <h2>1.248</h2>
+                        <span class="stat-label" data-i18n="stats.students">Alunos</span>
+                        <small class="stat-sub" data-i18n="stats.activeStudents">Ativos: 1.210</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon green">👨‍🏫</div>
+                    <div class="stat-info">
+                        <h2>82</h2>
+                        <span class="stat-label" data-i18n="stats.teachers">Professores</span>
+                        <small class="stat-sub" data-i18n="stats.activeTeachers">Ativos: 79</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon purple">🛡️</div>
+                    <div class="stat-info">
+                        <h2>4</h2>
+                        <span class="stat-label" data-i18n="stats.admins">Administradores</span>
+                        <small class="stat-sub" data-i18n="stats.activeAdmins">Ativos: 4</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon orange">📊</div>
+                    <div class="stat-info">
+                        <h2>1.334</h2>
+                        <span class="stat-label" data-i18n="stats.total">Usuários</span>
+                        <small class="stat-sub" data-i18n="stats.registered">Total cadastrados</small>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- PAINEL PRINCIPAL COM FILTROS E TABELA -->
+            <section class="table-container-card">
+
+                <!-- BARRA DE FILTROS E AÇÕES -->
+                <div class="table-toolbar">
+                    <div class="filter-group">
+                        <div class="input-with-icon">
+                            <span>🔍</span>
+                            <input type="text" placeholder="Pesquisar usuário..." data-i18n-placeholder="filter.search">
+                        </div>
+
+                        <select class="custom-select">
+                            <option value="" data-i18n="filter.profileAll">Perfil: Todos</option>
+                            <option value="aluno" data-i18n="role.student">Aluno</option>
+                            <option value="professor" data-i18n="role.teacher">Professor</option>
+                            <option value="admin" data-i18n="role.admin">Administrador</option>
+                        </select>
+
+                        <select class="custom-select">
+                            <option value="" data-i18n="filter.statusAll">Status: Todos</option>
+                            <option value="ativo" data-i18n="status.active">Ativo</option>
+                            <option value="inativo" data-i18n="status.inactive">Inativo</option>
+                        </select>
+
+                        <select class="custom-select">
+                            <option value="" data-i18n="filter.classAll">Turma: Todas</option>
+                            <option value="2a">2º Ano A</option>
+                            <option value="1b">1º Ano B</option>
+                        </select>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" data-i18n="btn.newUser">+ Novo Usuário</button>
+                        <button class="btn btn-outline" data-i18n="btn.importExcel">📥 Importar Excel</button>
+                    </div>
+                </div>
+
+
+                <!-- TABELA RESPONSIVA -->
+                <div class="table-responsive">
+                    <table class="users-table">
+                        <thead>
+                            <tr>
+                                <th data-i18n="table.user">Usuário</th>
+                                <th data-i18n="table.profile">Perfil</th>
+                                <th data-i18n="table.email">E-mail institucional</th>
+                                <th data-i18n="table.classSector">Turma / Setor</th>
+                                <th data-i18n="table.status">Status</th>
+                                <th data-i18n="table.lastAccess">Último acesso</th>
+                                <th data-i18n="table.actions">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="user-cell">
+                                    <div class="avatar-table">👩</div>
+                                    <strong>Ana Clara Oliveira</strong>
+                                </td>
+                                <td><span class="badge-role student" data-i18n="role.student">Aluno</span></td>
+                                <td class="email-cell">ana.oliveira@escola.mg.gov.br</td>
+                                <td>2º Ano A</td>
+                                <td><span class="status-indicator active" data-i18n="status.active">Ativo</span></td>
+                                <td data-i18n="time.today">Hoje às 08:42</td>
+                                <td class="actions-cell">
+                                    <button class="btn-action" title="Visualizar">👁️</button>
+                                    <button class="btn-action" title="Editar">✏️</button>
+                                    <button class="btn-action danger" title="Excluir">🗑️</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="user-cell">
+                                    <div class="avatar-table">👨</div>
+                                    <strong>Carlos Eduardo Souza</strong>
+                                </td>
+                                <td><span class="badge-role teacher" data-i18n="role.teacher">Professor</span></td>
+                                <td class="email-cell">carlos.souza@escola.mg.gov.br</td>
+                                <td>Matemática</td>
+                                <td><span class="status-indicator active" data-i18n="status.active">Ativo</span></td>
+                                <td data-i18n="time.yesterday">Ontem às 17:21</td>
+                                <td class="actions-cell">
+                                    <button class="btn-action" title="Visualizar">👁️</button>
+                                    <button class="btn-action" title="Editar">✏️</button>
+                                    <button class="btn-action danger" title="Excluir">🗑️</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="user-cell">
+                                    <div class="avatar-table">👩</div>
+                                    <strong>Fernanda Lima Martins</strong>
+                                </td>
+                                <td><span class="badge-role admin" data-i18n="role.admin">Administrador</span></td>
+                                <td class="email-cell">fernanda.lima@escola.mg.gov.br</td>
+                                <td>Coordenação</td>
+                                <td><span class="status-indicator active" data-i18n="status.active">Ativo</span></td>
+                                <td data-i18n="time.today2">Hoje às 09:15</td>
+                                <td class="actions-cell">
+                                    <button class="btn-action" title="Visualizar">👁️</button>
+                                    <button class="btn-action" title="Editar">✏️</button>
+                                    <button class="btn-action danger" title="Excluir">🗑️</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="user-cell">
+                                    <div class="avatar-table">👨</div>
+                                    <strong>Gabriel Henrique Silva</strong>
+                                </td>
+                                <td><span class="badge-role student" data-i18n="role.student">Aluno</span></td>
+                                <td class="email-cell">gabriel.silva@escola.mg.gov.br</td>
+                                <td>1º Ano B</td>
+                                <td><span class="status-indicator active" data-i18n="status.active">Ativo</span></td>
+                                <td>24/06/2025</td>
+                                <td class="actions-cell">
+                                    <button class="btn-action" title="Visualizar">👁️</button>
+                                    <button class="btn-action" title="Editar">✏️</button>
+                                    <button class="btn-action danger" title="Excluir">🗑️</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="user-cell">
+                                    <div class="avatar-table">👩</div>
+                                    <strong>Juliana Mendes Rocha</strong>
+                                </td>
+                                <td><span class="badge-role teacher" data-i18n="role.teacher">Professor</span></td>
+                                <td class="email-cell">juliana.rocha@escola.mg.gov.br</td>
+                                <td>Português</td>
+                                <td><span class="status-indicator inactive" data-i18n="status.inactive">Inativo</span></td>
+                                <td>15/06/2025</td>
+                                <td class="actions-cell">
+                                    <button class="btn-action" title="Visualizar">👁️</button>
+                                    <button class="btn-action" title="Editar">✏️</button>
+                                    <button class="btn-action danger" title="Excluir">🗑️</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <!-- RODAPÉ DA TABELA / PAGINAÇÃO -->
+                <div class="table-footer">
+                    <span class="showing-info" data-i18n="pagination.showing">Mostrando 1-10 de 1.334 usuários</span>
+                    
+                    <div class="pagination">
+                        <button class="page-btn disabled">&lt;</button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <span class="dots">...</span>
+                        <button class="page-btn">134</button>
+                        <button class="page-btn">&gt;</button>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
