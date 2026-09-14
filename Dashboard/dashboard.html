@@ -1,44 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>AmaralHub - Cardápio</title>
+    <link rel="stylesheet" href="dashboard.css">
 </head>
+
 <body>
-    <div id="introducao">
-        <p>Olá</p> <span>Usuário</span><p>!</p>
-        <p>Bem-vindo (a) ao AmaralHub</p>
-    </div>
-    <div id="conteiner">
-        <p>Cardápio</p>
-        <p>Data:</p>
-        <div id="data">
-            <p>Dia</p>
-            <p>Semana</p>
-            <p>Mês</p>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <img src="/logo2.png" alt="Logo AH">
         </div>
-        <div id="destaque">
-            <p>Hoje</p>
-            <p id="horário">Horário</p>
-            <img src="comida.jpg">
-            <button id="informacoes">Informações</button>
+
+        <nav class="menu">
+            <a href="#" class="menu-item">Início</a>
+            <a href="#" class="menu-item active">Cardápio</a>
+            <a href="#" class="menu-item">Ingredientes</a>
+            <a href="#" class="menu-item">Configurações</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="usuario">
+                <div class="usuario-icon">👤</div>
+                <span>Aluno</span>
+            </div>
+
+            <a href="#" class="sair">
+                <span class="sair-icon">➔</span>
+                <span>Sair</span>
+            </a>
         </div>
-        <div id="item-1">
-            <p>Horário</p>
-            <img src="comida.jpg">
-            <button id="informacoes">Informações</button>
+
+    </aside>
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+
+        <div class="main-wrapper">
+
+            <!-- CABEÇALHO -->
+            <header id="introducao">
+                <div>
+                    <h1>Olá, Aluno!</h1>
+                    <p>Bem-vindo(a) ao AmaralHub</p>
+                </div>
+
+                <button class="notificacao" aria-label="Notificações">
+                    🔔
+                </button>
+            </header>
+
+
+            <!-- CONTAINER DO CARDÁPIO -->
+            <section id="conteiner">
+
+                <!-- TOPO DO CARDÁPIO -->
+                <div class="cardapio-header">
+                    <div class="titulo-cardapio">
+                        <span class="icone-cardapio">📋</span>
+                        <h2>Cardápio</h2>
+                    </div>
+
+                    <div class="seletor-data">
+                        <strong>Data:</strong>
+                        <div id="data">
+                            <button class="selecionado">Dia</button>
+                            <button>Semana</button>
+                            <button>Mês</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- GRID DOS CARDS -->
+                <div class="cardapio-grid">
+
+                    <!-- CAFÉ DA MANHÃ -->
+                    <article id="destaque" class="refeicao">
+                        <div class="etiquetas">
+                            <span class="etiqueta hoje">Hoje</span>
+                            <span class="etiqueta horario">Café</span>
+                        </div>
+
+                        <img src="comida.jpg" alt="Torta de frango">
+
+                        <h3>Torta de Frango</h3>
+
+                        <p class="alergeno">
+                            ⚠️ CONTÉM GLÚTEN!
+                        </p>
+
+                        <button class="informacoes">Informações</button>
+                    </article>
+
+
+                    <!-- ALMOÇO -->
+                    <article id="item-1" class="refeicao">
+                        <div class="etiquetas">
+                            <span class="etiqueta tipo">Almoço</span>
+                        </div>
+
+                        <img src="feijoada.jpg" alt="Feijoada">
+
+                        <h3>Feijoada</h3>
+
+                        <button class="informacoes">Informações</button>
+                    </article>
+
+
+                    <!-- LANCHE -->
+                    <article id="item-2" class="refeicao">
+                        <div class="etiquetas">
+                            <span class="etiqueta tipo">Lanche</span>
+                        </div>
+
+                        <img src="mingau.jpg" alt="Mingau">
+
+                        <h3>Mingau</h3>
+
+                        <button class="informacoes">Informações</button>
+                    </article>
+
+
+                    <!-- ALERTA DE ALERGIA -->
+                    <div id="alergia">
+                        <div class="alerta-conteudo">
+                            <span class="alerta-icon">⚠️</span>
+                            <span class="quantidade">1</span>
+                            <div class="alerta-texto">
+                                <strong>Alergênico</strong>
+                                <span>detectado!</span>
+                            </div>
+                        </div>
+
+                        <button id="perfil">Editar Perfil</button>
+                    </div>
+
+                </div>
+
+            </section>
+
         </div>
-        <div id="item-2">
-            <p>Horário</p>
-            <img src="comida.jpg">
-            <button id="informacoes">Informações</button>
-        </div>
-    </div>
-    <div id="alergia">
-        <span>0</span>
-        <p>Alergias detectadas!</p>
-        <button id="perfil">Editar perfil</button>
-    </div>
+
+    </main>
+
 </body>
 </html>

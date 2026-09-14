@@ -1,0 +1,452 @@
+/* =====================================================
+   RESET E BASE
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+}
+
+body {
+    background: #f4f5f9;
+    color: #111;
+    display: flex;
+}
+
+
+/* =====================================================
+   SIDEBAR (LARGURA CONTROLADA)
+===================================================== */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: clamp(180px, 15vw, 240px);
+    height: 100vh;
+    background: #1450a3;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    padding: 20px 0;
+}
+
+.logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+}
+
+.logo img {
+    width: clamp(90px, 8vw, 130px);
+    height: auto;
+    object-fit: contain;
+}
+
+.menu {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: clamp(13px, 1vw, 16px);
+    padding: clamp(8px, 1.2vh, 12px) 0 clamp(8px, 1.2vh, 12px) clamp(20px, 2vw, 35px);
+    transition: background 0.2s;
+}
+
+.menu-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.menu-item.active {
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    padding-left: clamp(20px, 2vw, 35px);
+}
+
+.usuario {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.usuario-icon {
+    width: clamp(28px, 2.5vw, 36px);
+    height: clamp(28px, 2.5vw, 36px);
+    border-radius: 50%;
+    background: #ffffff;
+    color: #1450a3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(14px, 1.2vw, 18px);
+}
+
+.usuario span {
+    font-size: clamp(13px, 1vw, 16px);
+    font-weight: 600;
+}
+
+.sair {
+    color: white;
+    text-decoration: none;
+    font-size: clamp(12px, 0.9vw, 15px);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    opacity: 0.9;
+}
+
+
+/* =====================================================
+   ÁREA PRINCIPAL (COM LIMITADOR EM TELAS GRANDES)
+===================================================== */
+
+main {
+    margin-left: clamp(180px, 15vw, 240px);
+    width: calc(100% - clamp(180px, 15vw, 240px));
+    min-height: 100vh;
+    padding: clamp(15px, 2vw, 30px);
+    display: flex;
+    justify-content: center;
+}
+
+.main-wrapper {
+    width: 100%;
+    max-width: 1100px; /* Impede esticar demais em telas ultrawide */
+}
+
+
+/* CABEÇALHO */
+
+#introducao {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: clamp(12px, 1.8vh, 20px);
+}
+
+#introducao h1 {
+    font-size: clamp(18px, 1.8vw, 28px);
+    font-weight: 700;
+    color: #000;
+}
+
+#introducao p {
+    color: #777;
+    font-size: clamp(12px, 1.1vw, 16px);
+}
+
+.notificacao {
+    border: none;
+    background: transparent;
+    font-size: clamp(20px, 1.8vw, 26px);
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   CONTAINER CARDÁPIO
+===================================================== */
+
+#conteiner {
+    width: 100%;
+    background: white;
+    border-radius: clamp(14px, 1.5vw, 24px);
+    padding: clamp(15px, 2vw, 28px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+.cardapio-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: clamp(15px, 2vh, 25px);
+}
+
+.titulo-cardapio {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icone-cardapio {
+    font-size: clamp(18px, 1.8vw, 26px);
+}
+
+.titulo-cardapio h2 {
+    font-size: clamp(18px, 2vw, 28px);
+    font-weight: 500;
+    color: #000;
+}
+
+/* SELETOR DE DATA */
+
+.seletor-data {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: clamp(13px, 1.1vw, 16px);
+}
+
+#data {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #000;
+    border-radius: 16px;
+    padding: 1px;
+    background: white;
+}
+
+#data button {
+    border: none;
+    background: transparent;
+    padding: 3px clamp(8px, 0.8vw, 14px);
+    font-size: clamp(11px, 0.9vw, 14px);
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+#data button.selecionado {
+    background: #d3ebfb;
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   GRID DOS CARDS
+===================================================== */
+
+.cardapio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(12px, 1.5vw, 22px);
+}
+
+
+/* CARDS */
+
+.refeicao {
+    background: white;
+    border-radius: clamp(12px, 1.2vw, 18px);
+    padding: clamp(10px, 1.2vw, 16px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.etiquetas {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.refeicao:nth-child(2) .etiquetas,
+.refeicao:nth-child(3) .etiquetas {
+    justify-content: flex-start;
+}
+
+.etiqueta {
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: clamp(10px, 0.8vw, 12px);
+    font-weight: bold;
+}
+
+.hoje {
+    background: #1450a3;
+    color: white;
+}
+
+.horario, .tipo {
+    background: #d8f0ff;
+    color: #1450a3;
+}
+
+.refeicao img {
+    width: clamp(80px, 8vw, 120px);
+    height: clamp(60px, 6vw, 85px);
+    object-fit: cover;
+    border-radius: 14px;
+    margin: clamp(8px, 1vh, 12px) 0 clamp(4px, 0.6vh, 8px);
+}
+
+.refeicao h3 {
+    font-size: clamp(13px, 1.1vw, 16px);
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 2px;
+}
+
+.alergeno {
+    color: #ff3333;
+    font-size: clamp(10px, 0.8vw, 12px);
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.informacoes {
+    margin-top: auto;
+    width: 100%;
+    max-width: 140px;
+    padding: clamp(6px, 0.8vh, 9px) 0;
+    border: none;
+    border-radius: 10px;
+    background: #1450a3;
+    color: white;
+    font-size: clamp(11px, 0.9vw, 14px);
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(20, 80, 164, 0.25);
+}
+
+
+/* =====================================================
+   CARD DE ALERTA
+===================================================== */
+
+#alergia {
+    grid-column: 2 / 4;
+    background: white;
+    border-radius: clamp(12px, 1.2vw, 18px);
+    padding: clamp(10px, 1.2vw, 16px) clamp(14px, 1.5vw, 22px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.alerta-conteudo {
+    display: flex;
+    align-items: center;
+    gap: clamp(6px, 1vw, 12px);
+}
+
+.alerta-icon {
+    font-size: clamp(20px, 2vw, 28px);
+}
+
+.quantidade {
+    font-size: clamp(20px, 2vw, 30px);
+    color: #ff3333;
+    font-weight: 500;
+}
+
+.alerta-texto {
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(11px, 0.9vw, 14px);
+    line-height: 1.1;
+    color: #000;
+}
+
+#perfil {
+    padding: clamp(7px, 1vh, 10px) clamp(12px, 1.2vw, 20px);
+    border: none;
+    border-radius: 10px;
+    background: #1450a3;
+    color: white;
+    font-size: clamp(11px, 0.9vw, 14px);
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(20, 80, 164, 0.25);
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE (TABLETS E CELULARES)
+===================================================== */
+
+@media (max-width: 850px) {
+    .cardapio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #destaque, #alergia {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 650px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 10px 15px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        width: auto;
+        padding: 0;
+    }
+
+    .menu {
+        flex-direction: row;
+        margin-top: 0;
+        gap: 5px;
+    }
+
+    .menu-item {
+        padding: 4px 8px;
+    }
+
+    .sidebar-bottom {
+        display: none;
+    }
+
+    main {
+        margin-left: 0;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .cardapio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #destaque, #alergia {
+        grid-column: auto;
+    }
+
+    #alergia {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #perfil {
+        width: 100%;
+    }
+}
