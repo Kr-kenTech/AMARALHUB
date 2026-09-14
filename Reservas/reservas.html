@@ -1,11 +1,246 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservas</title>
+    <title>Reservas - AH</title>
+
+    <link rel="stylesheet" href="reservas.css">
 </head>
+
 <body>
-    
+
+    <div class="pagina">
+
+        <!-- MENU LATERAL -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <img src="/logo2.png" alt="Logo AH">
+            </div>
+
+            <nav class="menu">
+
+                <a href="#" class="menu-item">
+                    Início
+                </a>
+
+                <a href="#" class="menu-item">
+                    Cardápio
+                </a>
+
+                <a href="#" class="menu-item">
+                    Ingredientes
+                </a>
+
+                <a href="#" class="menu-item ativo">
+                    Reservas
+                </a>
+
+                <a href="#" class="menu-item">
+                    Configurações
+                </a>
+
+            </nav>
+
+            <!-- PARTE INFERIOR -->
+            <div class="sidebar-bottom">
+
+                <div class="professor">
+                    <div class="icone-usuario">
+                        ●
+                    </div>
+
+                    <span>Professor</span>
+                </div>
+
+                <div class="sair">
+                    <span class="icone-sair">↪</span>
+                    <span>Sair</span>
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- CONTEÚDO -->
+        <main class="conteudo">
+
+            <h1>Suas Reservas</h1>
+
+            <div class="linha"></div>
+
+
+            <!-- VISÃO GERAL -->
+            <section>
+
+                <h2>Visão Geral</h2>
+
+                <div class="calendario">
+
+                    <div class="cabecalho-calendario">
+
+                        <div></div>
+                        <div>Seg</div>
+                        <div>Ter</div>
+                        <div>Qua</div>
+                        <div>Qui</div>
+                        <div>Sex</div>
+
+                    </div>
+
+
+                    <div class="linha-calendario">
+
+                        <div class="horario">10:30</div>
+
+                        <div class="horario-box">+</div>
+                        <div class="horario-box">+</div>
+                        <div class="horario-box">+</div>
+                        <div class="horario-box">+</div>
+                        <div class="horario-box">+</div>
+
+                    </div>
+
+
+                    <div class="linha-calendario">
+
+                        <div class="horario">13:50</div>
+
+                        <div class="horario-box">+</div>
+                        <div class="horario-box">+</div>
+                        <div class="horario-box">+</div>
+                        <div class="horario-box">+</div>
+                        <div class="horario-box">+</div>
+
+                    </div>
+
+
+                    <div class="linha-calendario">
+
+                        <div class="horario">14:40</div>
+
+                        <div class="horario-box">+</div>
+                        <div class="horario-box">+</div>
+                        <div class="horario-box">+</div>
+                        <div class="horario-box">+</div>
+                        <div class="horario-box">+</div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RESERVAS AO VIVO -->
+                <section class="reservas-vivo">
+
+                    <h2>Reservas Ao vivo</h2>
+
+                    <!-- CATEGORIAS -->
+                    <div class="abas">
+
+                        <div class="aba selecionada">
+                            Informática
+                        </div>
+
+                        <div class="aba">
+                            Multimídia
+                        </div>
+
+                        <div class="aba">
+                            Retroprojetor
+                        </div>
+
+                    </div>
+
+
+                    <!-- CALENDÁRIO -->
+                    <div class="calendario">
+
+                        <!-- CABEÇALHO -->
+                        <div class="cabecalho-calendario">
+
+                            <div></div>
+                            <div>Seg</div>
+                            <div>Ter</div>
+                            <div>Qua</div>
+                            <div>Qui</div>
+                            <div>Sex</div>
+
+                        </div>
+
+
+                        <!-- 10:30 -->
+                        <div class="linha-calendario">
+
+                            <div class="horario">10:30</div>
+
+                            <div class="horario-box">+</div>
+                            <div class="horario-box">+</div>
+                            <div class="horario-box">+</div>
+                            <div class="horario-box">+</div>
+                            <div class="horario-box">+</div>
+
+                        </div>
+
+
+                        <!-- 13:50 -->
+                        <div class="linha-calendario">
+
+                            <div class="horario">13:50</div>
+
+                            <div class="horario-box">+</div>
+                            <div class="horario-box">+</div>
+                            <div class="horario-box">+</div>
+                            <div class="horario-box">+</div>
+                            <div class="horario-box">+</div>
+
+                        </div>
+
+
+                        <!-- 14:40 -->
+                        <div class="linha-calendario">
+
+                            <div class="horario">14:40</div>
+
+                            <div class="horario-box">+</div>
+                            <div class="horario-box">+</div>
+                            <div class="horario-box">+</div>
+                            <div class="horario-box">+</div>
+                            <div class="horario-box">+</div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- PAINEL -->
+                <section class="painel">
+
+                    <h2>Painel</h2>
+
+                    <div class="tabela">
+
+                        <div class="painel-vazio">
+                            Nenhuma reserva cadastrada.
+                        </div>
+
+                    </div>
+
+                    <button class="nova-reserva">
+                        + Nova reserva
+                    </button>
+
+                </section>
+
+        </main>
+
+    </div>
+
 </body>
+
 </html>

@@ -1,0 +1,660 @@
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #080808;
+}
+
+.pagina {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   MENU LATERAL
+========================= */
+
+.sidebar {
+    width: 277px;
+    min-height: 100vh;
+    background: #1852a5;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+
+/* LOGO */
+
+.logo {
+    height: 185px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+.logo img {
+    width: 190px;
+    height: auto;
+    display: block;
+}
+
+/* MENU */
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    padding: 15px 0;
+}
+
+.menu-item {
+    text-decoration: none;
+    color: white;
+
+    font-size: 23px;
+
+    padding: 12px 18px;
+    margin-left: 59px;
+
+    width: 127px;
+
+    border-radius: 9px;
+
+    transition: 0.2s;
+}
+
+.menu-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.menu-item.ativo {
+    background: #143b99;
+}
+
+
+/* PARTE INFERIOR */
+
+.sidebar-bottom {
+    margin-top: auto;
+
+    background: #17379a;
+
+    padding: 38px 40px 28px;
+
+    min-height: 170px;
+}
+
+.professor {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    font-size: 22px;
+}
+
+.icone-usuario {
+    width: 59px;
+    height: 59px;
+
+    border-radius: 50%;
+
+    background: #e4e9fa;
+    color: #17379a;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 30px;
+}
+
+.sair {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-top: 25px;
+
+    font-size: 22px;
+}
+
+.icone-sair {
+    font-size: 36px;
+}
+
+
+/* =========================
+   CONTEÚDO
+========================= */
+
+.conteudo {
+    margin-left: 277px;
+
+    width: calc(100% - 277px);
+
+    min-height: 100vh;
+
+    padding: 58px 58px 60px;
+
+    background: #f7f8fc;
+}
+
+
+/* TÍTULO */
+
+h1 {
+    font-size: 31px;
+    font-weight: 700;
+
+    margin-left: 2px;
+}
+
+.linha {
+    height: 10px;
+
+    width: 100%;
+
+    background: #b4c7e7;
+
+    border-radius: 10px;
+
+    margin-top: 22px;
+}
+
+
+/* TÍTULOS DAS SEÇÕES */
+
+h2 {
+    font-size: 25px;
+    margin-bottom: 16px;
+}
+
+
+/* =========================
+   VISÃO GERAL
+========================= */
+
+section {
+    margin-top: 16px;
+}
+
+.cards-resumo {
+    display: flex;
+    gap: 58px;
+
+    margin-left: 24px;
+}
+
+
+/* CARD */
+
+.card {
+    background: white;
+
+    border-radius: 26px;
+
+    box-shadow: 8px 12px 22px rgba(0, 0, 0, 0.18);
+
+    height: 84px;
+}
+
+
+/* RESERVAS ATIVAS */
+
+.resumo {
+    width: 218px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 35px;
+}
+
+.numero {
+    font-size: 63px;
+    color: #1852a5;
+    line-height: 1;
+}
+
+.texto-resumo {
+    font-size: 15px;
+    font-weight: bold;
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+
+/* PRÓXIMA RESERVA */
+
+.proxima {
+    width: 214px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    font-size: 15px;
+}
+
+.titulo-proxima {
+    font-weight: bold;
+    line-height: 1.05;
+}
+
+.informacao-proxima {
+    display: flex;
+    flex-direction: column;
+}
+
+.informacao-proxima span {
+    font-size: 13px;
+}
+
+.informacao-proxima small {
+    font-size: 11px;
+}
+
+
+/* =========================
+   RESERVAS AO VIVO
+========================= */
+
+.reservas-vivo {
+    margin-top: 15px;
+}
+
+.abas {
+    background: white;
+
+    height: 61px;
+
+    border-radius: 27px;
+
+    box-shadow: 8px 10px 20px rgba(0, 0, 0, 0.15);
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    padding: 0 12px;
+}
+
+.aba {
+    flex: 1;
+
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+
+    position: relative;
+}
+
+.aba.selecionada::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 33.33%;
+    height: 7px;
+
+    background: #1852a5;
+
+    border-radius: 5px;
+}
+
+
+/* =========================
+   CALENDÁRIO
+========================= */
+
+.calendario {
+    margin-top: 15px;
+
+    background: white;
+
+    border-radius: 26px;
+
+    padding: 14px 12px 22px;
+
+    box-shadow: 8px 10px 22px rgba(0, 0, 0, 0.15);
+}
+
+
+/* CABEÇALHO */
+
+.cabecalho-calendario,
+.linha-calendario {
+    display: grid;
+
+    grid-template-columns: 95px repeat(5, 1fr);
+
+    gap: 13px;
+
+    align-items: center;
+}
+
+.cabecalho-calendario {
+    margin-bottom: 5px;
+}
+
+.cabecalho-calendario div {
+    text-align: center;
+
+    font-size: 18px;
+}
+
+
+/* LINHAS */
+
+.linha-calendario {
+    min-height: 50px;
+
+    margin-bottom: 5px;
+}
+
+.horario {
+    text-align: center;
+
+    font-size: 17px;
+}
+
+
+/* ESPAÇOS DISPONÍVEIS */
+
+.horario-box {
+    height: 46px;
+
+    background: #dce5f3;
+
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #a6bad8;
+
+    font-size: 32px;
+    font-weight: bold;
+}
+
+
+/* RESERVA AZUL */
+
+.reserva {
+    height: 46px;
+
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+
+    text-align: center;
+
+    line-height: 1;
+}
+
+.reserva strong {
+    font-size: 13px;
+}
+
+.reserva span {
+    font-size: 12px;
+}
+
+.reserva.azul {
+    background: #15399d;
+}
+
+
+/* RESERVA VERMELHA */
+
+.reserva.vermelho {
+    background: #ff4e4e;
+}
+
+
+/* =========================
+   PAINEL
+========================= */
+
+.painel {
+    margin-top: 16px;
+}
+
+.tabela {
+    background: white;
+
+    box-shadow: 8px 10px 20px rgba(0, 0, 0, 0.16);
+}
+
+.tabela-linha {
+    min-height: 35px;
+
+    display: grid;
+
+    grid-template-columns: 115px 125px 150px 1fr;
+
+    align-items: center;
+
+    padding: 0 14px;
+
+    font-size: 17px;
+}
+
+.tabela-linha:nth-child(even) {
+    background: #f7f7f7;
+}
+
+.acoes {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 8px;
+}
+
+.acoes button {
+    border: none;
+    background: transparent;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.acoes button:hover {
+    text-decoration: underline;
+}
+
+
+/* NOVA RESERVA */
+
+.nova-reserva {
+    margin-top: 27px;
+
+    background: #15399d;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 11px;
+
+    padding: 10px 18px;
+
+    font-size: 23px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.nova-reserva:hover {
+    background: #102e83;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 210px;
+    }
+
+    .conteudo {
+        margin-left: 210px;
+        width: calc(100% - 210px);
+
+        padding: 40px 30px;
+    }
+
+    .menu-item {
+        margin-left: 30px;
+    }
+
+    .cards-resumo {
+        margin-left: 0;
+        gap: 20px;
+    }
+
+    .cabecalho-calendario,
+    .linha-calendario {
+        grid-template-columns: 70px repeat(5, 1fr);
+        gap: 5px;
+    }
+
+    .tabela-linha {
+        grid-template-columns: 90px 110px 120px 1fr;
+        font-size: 14px;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        width: 75px;
+    }
+
+    .logo span {
+        font-size: 45px;
+    }
+
+    .chapeu {
+        display: none;
+    }
+
+    .menu-item {
+        font-size: 0;
+
+        margin-left: 10px;
+
+        width: 55px;
+        height: 50px;
+    }
+
+    .sidebar-bottom {
+        padding: 20px 10px;
+    }
+
+    .professor span,
+    .sair span:not(.icone-sair) {
+        display: none;
+    }
+
+    .professor {
+        justify-content: center;
+    }
+
+    .sair {
+        justify-content: center;
+    }
+
+    .conteudo {
+        margin-left: 75px;
+        width: calc(100% - 75px);
+
+        padding: 30px 15px;
+    }
+
+    .cards-resumo {
+        flex-direction: column;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .calendario {
+        overflow-x: auto;
+    }
+
+    .cabecalho-calendario,
+    .linha-calendario {
+        min-width: 600px;
+    }
+
+    .tabela {
+        overflow-x: auto;
+    }
+
+    .tabela-linha {
+        min-width: 600px;
+    }
+
+}
+.painel-vazio {
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #777;
+    font-size: 16px;
+}
