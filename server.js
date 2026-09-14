@@ -5,17 +5,7 @@ const fs = require('fs');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
-const USERS_FILE = path.join(__dirname, 'usuarios.json');
-
-function lerUsuarios() {
-    if (!fs.existsSync(USERS_FILE)) return [];
-    try {
-        return JSON.parse(fs.readFileSync(USERS_FILE, 'utf8'));
-    } catch {
-        return [];
-    }
-}
+const AUTH_SERVICE_URL = process.env.AUTH_SERVICE_URL || 'http://localhost:4001';
 
 app.use(express.static(__dirname));
 app.use(express.json());
@@ -43,8 +33,8 @@ app.get('/login', (req, res) => {
     });
 });
 
-// Rota de Login tradicional por E-mail e Senha
-app.post('/api/login', (req, res) => {
+// Rota de Login tradicional que delega a checagem para o Microsserviço de Auth
+app.post('/api/login', async (req, res) => {
     const { email, password } = req.body;
     
     const dominiosPermitidos = ['@educacao.mg.gov.br', '@aluno.mg.gov.br'];
@@ -57,43 +47,54 @@ app.post('/api/login', (req, res) => {
         });
     }
     
-    const usuarios = lerUsuarios();
-    const usuarioEncontrado = usuarios.find(u => u.email === email && u.password === password);
-
-    if (!usuarioEncontrado) {
-        return res.status(401).json({ 
-            sucesso: false, 
-            erro: 'E-mail ou senha incorretos, ou você ainda não cadastrou uma senha (faça login com o Google primeiro).' 
+    try {
+        const response = await fetch(`${AUTH_SERVICE_URL}/internal/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
         });
-    }
+        
+        const resultado = await response.json();
 
-    return res.json({ sucesso: true, mensagem: 'Login realizado com sucesso!' });
+        if (!response.ok) {
+            return res.status(401).json({ 
+                sucesso: false, 
+                erro: 'E-mail ou senha incorretos, ou você ainda não cadastrou uma senha (faça login com o Google primeiro).' 
+            });
+        }
+
+        return res.json({ sucesso: true, mensagem: 'Login realizado com sucesso!' });
+    } catch (error) {
+        console.error('Erro ao comunicar com o Auth Service:', error);
+        return res.status(500).json({ sucesso: false, erro: 'Erro interno de comunicação.' });
+    }
 });
 
 // Rota para salvar a senha criada pelo aluno no primeiro acesso via Google
-app.post('/api/definir-senha', (req, res) => {
+app.post('/api/definir-senha', async (req, res) => {
     const { email, password } = req.body;
-    const usuarios = lerUsuarios();
     
-    const index = usuarios.findIndex(u => u.email === email);
-    if (index >= 0) {
-        usuarios[index].password = password;
-    } else {
-        usuarios.push({ email, password });
+    try {
+        await fetch(`${AUTH_SERVICE_URL}/internal/usuarios`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
+
+        res.send(`
+            <script>
+                alert('Senha cadastrada com sucesso! Agora você já pode entrar por e-mail e senha.');
+                window.location.href = '/login';
+            </script>
+        `);
+    } catch (error) {
+        console.error('Erro ao salvar senha:', error);
+        res.status(500).send('Erro ao salvar senha.');
     }
-    
-    fs.writeFileSync(USERS_FILE, JSON.stringify(usuarios, null, 2), 'utf8');
-    
-    res.send(`
-        <script>
-            alert('Senha cadastrada com sucesso! Agora você já pode entrar por e-mail e senha.');
-            window.location.href = '/login';
-        </script>
-    `);
 });
 
-// Rota de Callback do Google: Verifica se é o 1º acesso para pedir a senha própria
-app.post('/auth/google/callback', (req, res) => {
+// Rota de Callback do Google
+app.post('/auth/google/callback', async (req, res) => {
     try {
         const token = req.body.credential;
         
@@ -118,11 +119,16 @@ app.post('/auth/google/callback', (req, res) => {
             `);
         }
 
-        const usuarios = lerUsuarios();
-        const usuarioExistente = usuarios.find(u => u.email === emailDoUsuario);
+        // Consulta o microsserviço de autenticação para verificar se o usuário existe
+        const authResponse = await fetch(`${AUTH_SERVICE_URL}/internal/usuarios`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: emailDoUsuario })
+        });
+        const dadosUser = await authResponse.json();
 
         // Se o usuário já existe e já tem senha cadastrada, entra direto
-        if (usuarioExistente && usuarioExistente.password) {
+        if (dadosUser.usuario && dadosUser.usuario.password) {
             return res.send(`
                 <script>
                     alert('Login realizado com sucesso!');
@@ -131,7 +137,7 @@ app.post('/auth/google/callback', (req, res) => {
             `);
         }
 
-        // Se é a primeira vez (ou não tem senha cadastrada), exibe a tela rápida para ele criar a senha própria
+        // Caso contrário, exibe a tela para cadastrar a senha pela 1ª vez
         res.send(`
             <!DOCTYPE html>
             <html lang="pt-BR">
@@ -169,5 +175,5 @@ app.post('/auth/google/callback', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Servidor rodando com sucesso em: http://localhost:${PORT}`);
+    console.log(`[Web Service / Gateway] Rodando na porta ${PORT}`);
 });
