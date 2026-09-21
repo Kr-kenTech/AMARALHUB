@@ -3,131 +3,232 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AmaralHub - Cardápio (Visão do Aluno)</title>
+  <title>AmaralHub - Gestão de Cardápio e Ingredientes</title>
   
-  <!-- Tailwind CSS para Estilização Precisa -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Ligação com o ficheiro CSS local -->
+  <link rel="stylesheet" href="/AMARALHUB/Aluno/Cardapio/cardapio.css">
   
   <!-- Font Awesome para Ícones -->
-  <link rel="stylesheet" href="/AMARALHUB/Aluno/Cardapio/cardapio.css">
-
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f3f4f6;
-    }
-    .bg-sidebar {
-      background-color: #0d47a1; /* Azul escuro idêntico à imagem */
-    }
-    .sidebar-item {
-      transition: all 0.2s ease;
-    }
-    .sidebar-item:hover, .sidebar-item.active {
-      background-color: rgba(255, 255, 255, 0.15);
-      border-left: 4px solid #ffffff;
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="flex h-screen overflow-hidden text-gray-800">
+<body>
 
   <!-- BARRA LATERAL (SIDEBAR) -->
-  <aside class="w-64 bg-sidebar text-white flex flex-col justify-between shrink-0 shadow-lg">
+  <aside class="sidebar">
     <div>
-      <!-- LOGO AH -->
-      <div class="p-6 flex items-center space-x-3 border-b border-blue-800">
-        <div class="relative font-extrabold text-4xl tracking-tighter flex items-center">
+      <div class="sidebar-header">
+        <div class="logo-container">
           <span>A</span>
-          <span class="relative">
+          <span class="logo-h">
             H
-            <!-- Chapéu de Formatura sobre o H -->
-            <i class="fa-solid fa-graduation-cap absolute -top-3 -right-2 text-xl text-white transform rotate-12"></i>
+            <i class="fa-solid fa-graduation-cap logo-cap"></i>
           </span>
         </div>
+        <span class="brand-title">AmaralHub</span>
       </div>
 
-      <!-- NAV MENUS -->
-      <nav class="mt-4 px-2 space-y-1">
-        <a href="#" class="sidebar-item flex items-center px-4 py-3 text-sm font-medium rounded-r-md">
-          Início
+      <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-item">
+          <i class="fa-solid fa-chart-pie"></i> Início
         </a>
-        <a href="#" class="sidebar-item flex items-center px-4 py-3 text-sm font-medium rounded-r-md">
-          Visão Geral
+        <a href="#" class="sidebar-item active">
+          <i class="fa-solid fa-utensils"></i> Cardápio e Ingredientes
         </a>
-        <a href="#" class="sidebar-item active flex items-center px-4 py-3 text-sm font-medium rounded-r-md">
-          Cardápio e Ingredientes
+        <a href="#" class="sidebar-item">
+          <i class="fa-solid fa-calendar-check"></i> Reservas
         </a>
-        <a href="#" class="sidebar-item flex items-center px-4 py-3 text-sm font-medium rounded-r-md opacity-50 cursor-not-allowed" title="Acesso restrito">
-          Gestão de Usuários
+        <a href="#" class="sidebar-item">
+          <i class="fa-solid fa-users"></i> Gestão de Usuários
         </a>
-        <a href="#" class="sidebar-item flex items-center px-4 py-3 text-sm font-medium rounded-r-md">
-          Relatório
-        </a>
-        <a href="#" class="sidebar-item flex items-center px-4 py-3 text-sm font-medium rounded-r-md">
-          Configurações
+        <a href="#" class="sidebar-item">
+          <i class="fa-solid fa-file-lines"></i> Relatórios
         </a>
       </nav>
     </div>
 
-    <!-- USUÁRIO ALUNO -->
-    <div class="p-4 border-t border-blue-800 space-y-3">
-      <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-full bg-white text-blue-900 flex items-center justify-center font-bold">
-          <i class="fa-solid fa-user text-xl"></i>
+    <div class="sidebar-footer">
+      <div class="user-box">
+        <div class="user-avatar">
+          <i class="fa-solid fa-user"></i>
         </div>
         <div>
-          <span class="font-semibold text-base block leading-tight">Aluno</span>
-          <span class="text-xs text-blue-200">@aluno.mg.gov.br</span>
+          <span class="user-name">Administrador</span>
+          <span class="user-domain">@educacao.mg.gov.br</span>
         </div>
       </div>
-      <button onclick="alert('Sessão encerrada!')" class="flex items-center space-x-2 text-sm text-gray-200 hover:text-white transition">
-        <i class="fa-solid fa-right-from-bracket"></i>
-        <span>Sair</span>
-      </button>
     </div>
   </aside>
 
-  <!-- ÁREA PRINCIPAL DO ALUNO -->
-  <main class="flex-1 overflow-y-auto p-8">
+  <!-- ÁREA PRINCIPAL -->
+  <main class="main-content">
     
-    <!-- CABEÇALHO -->
-    <header class="mb-6 flex justify-between items-center">
+    <header class="page-header">
       <div>
-        <h1 class="text-3xl font-bold text-gray-900">Olá, Aluno!</h1>
-        <p class="text-gray-500 font-medium">Bem-vindo(a) ao AmaralHub</p>
+        <h1 class="page-title">Cardápio & Ingredientes</h1>
+        <p class="page-subtitle">Consulte e gira as refeições, valores nutricionais e alertas de alergênicos.</p>
       </div>
-      <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full border border-blue-200">
-        Perfil: Consulta de Cardápio
-      </span>
+
+      <div>
+        <span class="badge-panel">Painel de Gestão</span>
+      </div>
     </header>
 
-    <!-- BANNER DE ALERTA DE ALERGÊNICOS (REQUISITO PARA ALUNOS) -->
-    <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl shadow-sm mb-6 flex items-center space-x-3">
-      <i class="fa-solid fa-triangle-exclamation text-amber-600 text-xl"></i>
-      <p class="text-xs text-amber-800 font-medium">
-        <strong>Atenção às Restrições Alimentares:</strong> Verifique sempre os ingredientes das refeições abaixo antes do consumo.
-      </p>
-    </div>
-
-    <!-- CARD DO CARDÁPIO PRINCIPAL (IGUAL À IMAGEM) -->
-    <div class="max-w-xl mx-auto bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-      <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Cardápio</h2>
-      
-      <div class="space-y-4">
-        <!-- ITEM 1: ALMOÇO -->
-        <div class="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-50 transition">
-          <span class="bg-blue-200 text-blue-800 text-sm font-bold px-4 py-1.5 rounded-md">Almoço</span>
-          <span class="text-gray-800 font-semibold text-base">Feijoada (hoje/almoço)</span>
-        </div>
-
-        <!-- ITEM 2: LANCHE -->
-        <div class="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-50 transition">
-          <span class="bg-blue-200 text-blue-800 text-sm font-bold px-4 py-1.5 rounded-md">Lanche</span>
-          <span class="text-gray-800 font-semibold text-base">Mingau (hoje/lanche)</span>
-        </div>
+    <!-- BANNER DE ALERTA -->
+    <div class="alert-banner">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div>
+        <h3>Alerta Alimentar da Semana (Alergênicos Registrados)</h3>
+        <p>Atenção aos alunos com restrições: A refeição de <strong>Quarta-feira (Feijoada)</strong> contém Soja. O lanche contém Lactose.</p>
       </div>
     </div>
+
+    <!-- SEÇÃO DE IMPORTAÇÃO -->
+    <section class="upload-section">
+      <h2><i class="fa-solid fa-file-excel"></i> Homologação de Cardápio via Planilha Excel (.xlsx)</h2>
+      <p>Envie a planilha do mês. O processamento e validação dos campos nutricionais será executado via serviço Python.</p>
+
+      <div class="upload-controls">
+        <input type="file" id="excelFileInput" style="display: none;" accept=".xlsx" onchange="processarPlanilhaExcel(event)">
+        
+        <button onclick="document.getElementById('excelFileInput').click()" class="btn-upload">
+          <i class="fa-solid fa-upload"></i>
+          <span>Selecionar Planilha (.xlsx)</span>
+        </button>
+
+        <span id="statusUpload" class="status-text">Nenhum arquivo selecionado</span>
+      </div>
+
+      <div id="loadingFila" class="loading-spinner hidden">
+        <i class="fa-solid fa-circle-notch fa-spin"></i>
+        <span>Validando dados no serviço Python (Fila planilha.cardapio.processada)...</span>
+      </div>
+    </section>
+
+    <!-- CARDS DO CARDÁPIO -->
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">Cardápio da Semana</h2>
+        <span class="polling-text"><i class="fa-solid fa-arrows-rotate"></i> Atualização assíncrona ativa (Polling 5s)</span>
+      </div>
+
+      <div class="cardapio-grid">
+        
+        <!-- SEGUNDA-FEIRA -->
+        <div class="meal-card today">
+          <div class="badge-today">Hoje</div>
+          <h3 class="day-title">Segunda-feira</h3>
+
+          <div class="meal-block">
+            <span class="meal-type-almoco">Almoço</span>
+            <h4 class="meal-name">Arroz, Feijão, Frango Grelhado e Salada</h4>
+            <div class="tags-container">
+              <span class="tag-green">Sem Glúten</span>
+              <span class="tag-green">Sem Lactose</span>
+            </div>
+          </div>
+
+          <div>
+            <span class="meal-type-lanche">Lanche</span>
+            <h4 class="meal-name">Mingau de Aveia com Frutas</h4>
+            <div class="tags-container">
+              <span class="tag-red"><i class="fa-solid fa-circle-exclamation"></i> Contém Lactose</span>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <button onclick="editarRefeicao('Segunda-feira')" class="btn-edit">
+              <i class="fa-regular fa-pen-to-square"></i>
+              <span>Editar Cardápio</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- TERÇA-FEIRA -->
+        <div class="meal-card">
+          <h3 class="day-title">Terça-feira</h3>
+
+          <div class="meal-block">
+            <span class="meal-type-almoco">Almoço</span>
+            <h4 class="meal-name">Macarronada à Bolonhesa e Salada Verde</h4>
+            <div class="tags-container">
+              <span class="tag-red"><i class="fa-solid fa-circle-exclamation"></i> Contém Glúten</span>
+            </div>
+          </div>
+
+          <div>
+            <span class="meal-type-lanche">Lanche</span>
+            <h4 class="meal-name">Suco Natural e Biscoito Integral</h4>
+            <div class="tags-container">
+              <span class="tag-green">Sem Lactose</span>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <button onclick="editarRefeicao('Terça-feira')" class="btn-edit">
+              <i class="fa-regular fa-pen-to-square"></i>
+              <span>Editar Cardápio</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- QUARTA-FEIRA -->
+        <div class="meal-card">
+          <h3 class="day-title">Quarta-feira</h3>
+
+          <div class="meal-block">
+            <span class="meal-type-almoco">Almoço</span>
+            <h4 class="meal-name">Feijoada Tradicional, Arroz e Couve</h4>
+            <div class="tags-container">
+              <span class="tag-amber"><i class="fa-solid fa-triangle-exclamation"></i> Contém Soja</span>
+            </div>
+          </div>
+
+          <div>
+            <span class="meal-type-lanche">Lanche</span>
+            <h4 class="meal-name">Salada de Frutas com Granola</h4>
+            <div class="tags-container">
+              <span class="tag-green">100% Vegano</span>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <button onclick="editarRefeicao('Quarta-feira')" class="btn-edit">
+              <i class="fa-regular fa-pen-to-square"></i>
+              <span>Editar Cardápio</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
 
   </main>
 
+  <script>
+    function processarPlanilhaExcel(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      if (!file.name.endsWith('.xlsx')) {
+        alert('Erro: Apenas planilhas no formato .xlsx são aceitas pelo parser Python.');
+        return;
+      }
+
+      const statusUpload = document.getElementById('statusUpload');
+      const loadingFila = document.getElementById('loadingFila');
+
+      statusUpload.textContent = `Ficheiro: "${file.name}"`;
+      loadingFila.classList.remove('hidden');
+
+      setTimeout(() => {
+        loadingFila.classList.add('hidden');
+        alert(`Sucesso: Planilha "${file.name}" processada via Python e persistida no MongoDB!`);
+      }, 2000);
+    }
+
+    function editarRefeicao(dia) {
+      alert(`A abrir edição do cardápio de: ${dia}`);
+    }
+  </script>
 </body>
 </html>

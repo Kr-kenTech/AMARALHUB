@@ -1,9 +1,9 @@
 /* ==========================================================================
-   AmaralHub - Estilos do Dashboard e Cardápio (Visão do Aluno)
+   AmaralHub - Estilos da Página de Cardápio e Ingredientes
    ========================================================================== */
 
-/* Importação da fonte Inter para tipografia moderna e limpa */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+/* Importação de fonte moderna */
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600;700&display=swap');
 
 /* Configurações Globais */
 * {
@@ -13,8 +13,8 @@
 }
 
 body {
-  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f3f4f6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8fafc;
   color: #1f2937;
   display: flex;
   height: 100vh;
@@ -26,8 +26,8 @@ body {
    ========================================================================== */
 
 .sidebar {
-  width: 256px; /* 16rem */
-  background-color: #0d47a1; /* Azul escuro oficial AmaralHub */
+  width: 16rem; /* 256px */
+  background-color: #0d47a1; /* Azul Institucional AmaralHub */
   color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -36,15 +36,15 @@ body {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-/* Logótipo "AH" com chapéu de formatura */
-.sidebar-logo-container {
+.sidebar-header {
   padding: 1.5rem;
   display: flex;
   align-items: center;
+  gap: 0.75rem;
   border-bottom: 1px solid #1e40af;
 }
 
-.logo-text {
+.logo-container {
   position: relative;
   font-weight: 800;
   font-size: 2.25rem;
@@ -66,10 +66,21 @@ body {
   transform: rotate(12deg);
 }
 
-/* Navegação e Menus */
+.brand-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin-left: 0.5rem;
+  color: #bfdbfe;
+}
+
 .sidebar-nav {
   margin-top: 1rem;
   padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .sidebar-item {
@@ -83,36 +94,34 @@ body {
   border-top-right-radius: 0.375rem;
   border-bottom-right-radius: 0.375rem;
   transition: all 0.2s ease;
-  margin-bottom: 0.25rem;
 }
 
-.sidebar-item:hover, 
+.sidebar-item i {
+  margin-right: 0.75rem;
+  width: 1.25rem;
+  text-align: center;
+}
+
+.sidebar-item:hover,
 .sidebar-item.active {
   background-color: rgba(255, 255, 255, 0.15);
   border-left: 4px solid #ffffff;
 }
 
-.sidebar-item.disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* Perfil do Usuário e Rodapé da Sidebar */
 .sidebar-footer {
   padding: 1rem;
   border-top: 1px solid #1e40af;
 }
 
-.user-profile {
+.user-box {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-bottom: 0.75rem;
 }
 
 .user-avatar {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.25rem;
+  height: 2.25rem;
   border-radius: 9999px;
   background-color: #ffffff;
   color: #0d47a1;
@@ -124,33 +133,18 @@ body {
 
 .user-name {
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.875rem;
+  display: block;
   line-height: 1.25;
 }
 
-.user-email {
+.user-domain {
   font-size: 0.75rem;
-  color: #93c5fd;
-}
-
-.btn-logout {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: none;
-  border: none;
-  color: #e5e7eb;
-  font-size: 0.875rem;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.btn-logout:hover {
-  color: #ffffff;
+  color: #bfdbfe;
 }
 
 /* ==========================================================================
-   Área Conteúdo Principal
+   Área de Conteúdo Principal
    ========================================================================== */
 
 .main-content {
@@ -159,35 +153,46 @@ body {
   padding: 2rem;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.page-header {
   margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.title {
+@media (min-width: 768px) {
+  .page-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.page-title {
   font-size: 1.875rem;
   font-weight: 700;
   color: #111827;
 }
 
-.subtitle {
+.page-subtitle {
   color: #6b7280;
   font-weight: 500;
 }
 
-.badge-profile {
+.badge-panel {
   background-color: #dbeafe;
   color: #1e40af;
   font-size: 0.75rem;
   font-weight: 700;
-  padding: 0.25rem 0.75rem;
+  padding: 0.375rem 0.75rem;
   border-radius: 9999px;
   border: 1px solid #bfdbfe;
 }
 
-/* Banner de Alertas Alimentares */
+/* ==========================================================================
+   Banners e Seção de Importação
+   ========================================================================== */
+
 .alert-banner {
   background-color: #fffbeb;
   border-left: 4px solid #f59e0b;
@@ -197,76 +202,283 @@ body {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   margin-bottom: 1.5rem;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.75rem;
 }
 
 .alert-banner i {
   color: #d97706;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
+  margin-top: 0.125rem;
+}
+
+.alert-banner h3 {
+  font-weight: 700;
+  color: #92400e;
+  font-size: 0.875rem;
 }
 
 .alert-banner p {
   font-size: 0.75rem;
-  color: #92400e;
+  color: #b45309;
+  margin-top: 0.125rem;
+}
+
+.upload-section {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f5f9;
+  margin-bottom: 2rem;
+}
+
+.upload-section h2 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.upload-section h2 i {
+  color: #16a34a;
+  margin-right: 0.5rem;
+}
+
+.upload-section p {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-bottom: 1rem;
+}
+
+.upload-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .upload-controls {
+    flex-direction: row;
+  }
+}
+
+.btn-upload {
+  background-color: #1d4ed8;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.btn-upload:hover {
+  background-color: #1e40af;
+}
+
+.status-text {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.loading-spinner {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #eff6ff;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #dbeafe;
+}
+
+.loading-spinner.hidden {
+  display: none;
+}
+
+.loading-spinner i {
+  color: #2563eb;
+  font-size: 1.125rem;
+}
+
+.loading-spinner span {
+  font-size: 0.75rem;
+  color: #1e40af;
   font-weight: 500;
 }
 
 /* ==========================================================================
-   Card do Cardápio (Idêntico ao da imagem)
+   Grid do Cardápio da Semana
    ========================================================================== */
 
-.card-cardapio {
-  max-width: 36rem; /* 576px */
-  margin: 0 auto;
-  background-color: #ffffff;
-  border-radius: 1rem;
-  padding: 2rem;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-  border: 1px solid #f3f4f6;
-}
-
-.card-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1f2937;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.menu-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.menu-item {
+.section-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 0.75rem;
-  border-radius: 0.5rem;
-  transition: background-color 0.2s ease;
+  justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
-.menu-item:hover {
-  background-color: #f9fafb;
-}
-
-/* Etiquetas Azuis das Refeições */
-.badge-meal {
-  background-color: #bfdbfe; /* Azul claro do layout original */
-  color: #1e3a8a;
-  font-size: 0.875rem;
+.section-title {
+  font-size: 1.25rem;
   font-weight: 700;
-  padding: 0.375rem 1rem;
-  border-radius: 0.375rem;
-  min-width: 5rem;
-  text-align: center;
+  color: #1e293b;
 }
 
-.meal-description {
-  color: #1f2937;
+.polling-text {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.cardapio-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .cardapio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cardapio-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Card Dia da Semana */
+.meal-card {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f5f9;
+  position: relative;
+  overflow: hidden;
+}
+
+.meal-card.today {
+  border-color: #bfdbfe;
+}
+
+.badge-today {
+  background-color: #2563eb;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.75rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.day-title {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #1e293b;
+  margin-bottom: 0.75rem;
+}
+
+.meal-block {
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.meal-type-almoco {
+  background-color: #dbeafe;
+  color: #1e40af;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.125rem 0.625rem;
+  border-radius: 0.375rem;
+}
+
+.meal-type-lanche {
+  background-color: #fef3c7;
+  color: #92400e;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.125rem 0.625rem;
+  border-radius: 0.375rem;
+}
+
+.meal-name {
+  font-weight: 700;
+  color: #1e293b;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.tags-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.tag-green {
+  background-color: #dcfce7;
+  color: #166534;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.tag-red {
+  background-color: #fee2e2;
+  color: #991b1b;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.tag-amber {
+  background-color: #fef3c7;
+  color: #92400e;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.card-footer {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-edit {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-size: 0.75rem;
   font-weight: 600;
-  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+}
+
+.btn-edit:hover {
+  color: #1e40af;
 }
