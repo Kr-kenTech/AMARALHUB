@@ -5,17 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AmaralHub - Configurações</title>
+
+    <!-- Preferências globais (deve ser o primeiro script) -->
+    <script src="/global-preferences.js"></script>
+
     <link rel="stylesheet" href="/dark-mode.css">
-    <script>
-        (function() {
-            if (localStorage.getItem('theme') === 'dark') {
-                document.documentElement.classList.add('dark-theme');
-                window.addEventListener('DOMContentLoaded', () => {
-                    document.body.classList.add('dark-theme');
-                });
-            }
-        })();
-    </script>
     <link rel="stylesheet" href="config.css">
 </head>
 
@@ -39,8 +33,8 @@
 
         <div class="sidebar-bottom">
             <div class="usuario">
-                <div class="usuario-icon" id="sidebar-user-icon">👤</div>
-                <span id="role-usuario-label">Usuário</span>
+                <div class="usuario-icon">👤</div>
+                <span id="nome-usuario">Aluno</span>
             </div>
             <a href="/login" class="sair">
                 <span class="sair-icon">➔</span>
@@ -224,6 +218,7 @@
                     </div>
 
                     <div class="card-body">
+                        <!-- TEMA -->
                         <div class="setting-row">
                             <div class="setting-label">
                                 <span class="row-icon">☀️</span>
@@ -233,26 +228,12 @@
                                 </div>
                             </div>
                             <div class="segmented-control theme-control">
-                                <button class="active">☀️ Claro</button>
-                                <button>🌙 Escuro</button>
+                                <button type="button" data-theme="light">☀️ Claro</button>
+                                <button type="button" data-theme="dark">🌙 Escuro</button>
                             </div>
                         </div>
 
-                        <div class="setting-row">
-                            <div class="setting-label">
-                                <span class="row-icon">🌐</span>
-                                <div>
-                                    <strong>Idioma de exibição</strong>
-                                    <p>Selecione o idioma da interface</p>
-                                </div>
-                            </div>
-                            <select class="custom-select">
-                                <option>Português (Brasil)</option>
-                                <option>English</option>
-                                <option>Español</option>
-                            </select>
-                        </div>
-
+                        <!-- TAMANHO DA FONTE -->
                         <div class="setting-row">
                             <div class="setting-label">
                                 <span class="row-icon">Aa</span>
@@ -262,9 +243,9 @@
                                 </div>
                             </div>
                             <div class="segmented-control font-control">
-                                <button data-size="small">A-</button>
-                                <button data-size="medium" class="active">Médio</button>
-                                <button data-size="large" class="large-text">A+</button>
+                                <button type="button" data-font="small">A-</button>
+                                <button type="button" data-font="default">Médio</button>
+                                <button type="button" data-font="large" class="large-text">A+</button>
                             </div>
                         </div>
                     </div>
@@ -272,6 +253,7 @@
             </section>
         </div>
     </main>
+
     <script src="config.js"></script>
 </body>
 

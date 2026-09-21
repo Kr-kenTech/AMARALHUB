@@ -1,21 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AmaralHub - Dashboard do Aluno</title>
+    <script src="/global-preferences.js"></script>
+    
     <link rel="stylesheet" href="/dark-mode.css">
-    <script>
-        (function() {
-            if (localStorage.getItem('theme') === 'dark') {
-                document.documentElement.classList.add('dark-theme');
-                window.addEventListener('DOMContentLoaded', () => {
-                    document.body.classList.add('dark-theme');
-                });
-            }
-        })();
-    </script>
     <link rel="stylesheet" href="aluno.css">
 </head>
 
@@ -28,7 +19,7 @@
 
         <nav class="menu">
             <a href="/Aluno/" class="menu-item active">Início</a>
-            <a href="#" class="menu-item">Cardápio</a>
+            <a href="/Cardapio/" class="menu-item">Cardápio</a>
             <a href="#" class="menu-item">Ingredientes</a>
             <a href="/Configuracoes/config.html" class="menu-item">Configurações</a>
         </nav>

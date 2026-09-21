@@ -15,6 +15,7 @@
         const savedFontSize = localStorage.getItem('fontSize') || 'medium';
         document.documentElement.classList.add(`font-${savedFontSize}`);
     </script>
+    <script src="/global-preferences.js"></script>
     <link rel="stylesheet" href="professor.css">
 </head>
 
@@ -61,7 +62,7 @@
 
                 <!-- ================= COLUNA ESQUERDA ================= -->
                 <div class="coluna-esquerda">
-                    
+
                     <!-- Linha Superior: Métricas e Cardápio -->
                     <div class="linha-superior">
                         <div class="card-metrica">
@@ -106,7 +107,7 @@
 
                 <!-- ================= COLUNA DIREITA ================= -->
                 <div class="coluna-direita">
-                    
+
                     <!-- Card de Reservas Feitas -->
                     <div class="card-reservas">
                         <h2>Suas Reservas</h2>
@@ -161,4 +162,5 @@
         });
     </script>
 </body>
+
 </html>

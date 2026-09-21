@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,8 +15,10 @@
         const savedFontSize = localStorage.getItem('fontSize') || 'medium';
         document.documentElement.classList.add(`font-${savedFontSize}`);
     </script>
+    <script src="/global-preferences.js"></script>
     <link rel="stylesheet" href="rela.css">
 </head>
+
 <body>
 
     <!-- Menu Lateral (Sidebar) -->
@@ -43,7 +46,7 @@
     <!-- Conteúdo Principal -->
     <main>
         <div class="main-wrapper">
-            
+
             <!-- Cabeçalho -->
             <header class="page-header">
                 <div>
@@ -101,10 +104,10 @@
 
             <!-- Grid 2: Conteúdo Principal em Duas Colunas -->
             <section class="dashboard-grid">
-                
+
                 <!-- Coluna da Esquerda (Gráficos principais) -->
                 <div class="main-charts">
-                    
+
                     <div class="charts-row">
                         <div class="card-box">
                             <h3>Evolução do desperdício (kg)</h3>
@@ -156,7 +159,7 @@
 
                 <!-- Coluna da Direita (Relatórios e Tabelas) -->
                 <div class="side-widgets">
-                    
+
                     <div class="card-box">
                         <h3>Ingredientes mais desperdiçados (kg)</h3>
                         <div class="report-table-wrapper">
@@ -246,6 +249,6 @@
 
         </div>
     </main>
-
 </body>
+
 </html>
