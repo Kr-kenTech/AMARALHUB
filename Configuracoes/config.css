@@ -55,14 +55,13 @@ body {
     display: flex;
     flex-direction: column;
     z-index: 100;
-    padding: 1.5rem 0;
+    padding: 24px 0;
 }
 
 .logo {
-    width: 100%;
     display: flex;
     justify-content: center;
-    padding-bottom: 1rem;
+    padding-bottom: 20px;
 }
 
 .logo img {
@@ -72,17 +71,18 @@ body {
 }
 
 .menu {
-    margin-top: 1rem;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
+    gap: 4px;
 }
 
 .menu-item {
     color: #ffffff;
     text-decoration: none;
-    font-size: 0.95rem;
-    padding: 0.8rem 1.8rem;
-    transition: background 0.2s;
+    font-size: 15px;
+    padding: 12px 24px;
+    transition: background 0.2s ease;
 }
 
 .menu-item:hover {
@@ -90,51 +90,55 @@ body {
 }
 
 .menu-item.active {
-    font-weight: bold;
-    background: #0f3d7e;
-    border-radius: 8px 0 0 8px;
-    margin-left: 10px;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.15);
+    border-left: 4px solid #ffffff;
 }
 
 .sidebar-bottom {
     margin-top: auto;
-    padding-left: 1.8rem;
+    padding: 0 24px;
 }
 
 .usuario {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-    margin-bottom: 1.2rem;
+    gap: 12px;
+    margin-bottom: 15px;
 }
 
 .usuario-icon {
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     background: #ffffff;
     color: #1450a3;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .usuario span {
-    font-size: 1rem;
+    font-size: 15px;
     font-weight: 600;
 }
 
 .sair {
     color: white;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 14px;
     display: flex;
     align-items: center;
-    gap: 0.4rem;
-    opacity: 0.9;
+    gap: 8px;
+    opacity: 0.85;
+    transition: opacity 0.2s;
 }
 
+.sair:hover {
+    opacity: 1;
+}
 
 /* =====================================================
    ÁREA PRINCIPAL
@@ -802,96 +806,6 @@ input:checked + .slider:before {
     font-size: 0.8rem;
     color: #94a3b8;
 }
-
-
-/* =====================================================
-   ESTILOS DO MODO ESCURO (DARK MODE)
-===================================================== */
-
-body.dark-theme {
-    background: #0f172a;
-    color: #f8fafc;
-}
-
-body.dark-theme #introducao h1,
-body.dark-theme .card-header h2,
-body.dark-theme .toggle-info strong,
-body.dark-theme .user-name-badge strong,
-body.dark-theme .system-about strong,
-body.dark-theme .section-block h3,
-body.dark-theme .security-col strong,
-body.dark-theme .setting-label strong {
-    color: #ffffff;
-}
-
-body.dark-theme #introducao p,
-body.dark-theme .card-header p,
-body.dark-theme .toggle-info p,
-body.dark-theme .user-email,
-body.dark-theme .google-account,
-body.dark-theme .system-about p,
-body.dark-theme .security-col h3,
-body.dark-theme .security-col .location,
-body.dark-theme .security-col .date,
-body.dark-theme .setting-label p {
-    color: #94a3b8;
-}
-
-body.dark-theme .card-config {
-    background: #1e293b;
-    border-color: #334155;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-body.dark-theme .card-header,
-body.dark-theme .action-list li,
-body.dark-theme .setting-row,
-body.dark-theme .toggle-item {
-    border-color: #334155;
-}
-
-body.dark-theme .search-box,
-body.dark-theme .user-profile-menu,
-body.dark-theme .custom-select {
-    background: #1e293b;
-    border-color: #334155;
-    color: white;
-}
-
-body.dark-theme .search-box input {
-    color: white;
-}
-
-body.dark-theme .action-item {
-    color: #e2e8f0;
-}
-
-body.dark-theme .empty-box,
-body.dark-theme .security-col {
-    background: #0f172a;
-    border-color: #334155;
-}
-
-body.dark-theme .segmented-control {
-    background: #0f172a;
-}
-
-body.dark-theme .segmented-control button {
-    color: #94a3b8;
-}
-
-body.dark-theme .segmented-control button.active {
-    background: #334155;
-    color: #ffffff;
-}
-
-body.dark-theme .btn-add-allergy {
-    background: #2e1065;
-    border-color: #6b21a8;
-    color: #d8b4fe;
-}
-
-
 /* =====================================================
    RESPONSIVIDADE (DISPOSITIVOS MÓVEIS)
 ===================================================== */

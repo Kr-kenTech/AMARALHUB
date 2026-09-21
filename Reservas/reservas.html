@@ -5,6 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservas - AmaralHub</title>
+    <link rel="stylesheet" href="/dark-mode.css">
+    <script>
+        (function() {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark-theme');
+                window.addEventListener('DOMContentLoaded', () => {
+                    document.body.classList.add('dark-theme');
+                });
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="reservas.css">
 </head>
 
@@ -18,23 +29,22 @@
             </div>
 
             <nav class="menu">
-                <a href="/Inicio/inicio.html" class="menu-item">Início</a>
-                <a href="#" class="menu-item">Cardápio</a>
-                <a href="#" class="menu-item">Ingredientes</a>
-                <a href="/reservas" class="menu-item ativo">Reservas</a>
-                <a href="#" class="menu-item">Configurações</a>
+                <a href="/Professor/" class="menu-item">Início</a>
+                <a href="/Professor/cardapio" class="menu-item">Cardápio</a>
+                <a href="/Professor/ingredientes" class="menu-item">Ingredientes</a>
+                <a href="/Reservas/" class="menu-item active">Reservas</a>
+                <a href="/configuracoes/config.html" class="menu-item">Configurações</a>
             </nav>
 
             <div class="sidebar-bottom">
-                <div class="professor">
-                    <div class="icone-usuario">●</div>
+                <div class="usuario">
+                    <div class="usuario-icon">👤</div>
                     <span>Professor</span>
                 </div>
-
-                <div class="sair" onclick="window.location.href='/login'">
-                    <span class="icone-sair">↪</span>
+                <a href="/login" class="sair">
+                    <span class="sair-icon">➔</span>
                     <span>Sair</span>
-                </div>
+                </a>
             </div>
         </aside>
 

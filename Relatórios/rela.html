@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relatórios de Desperdício</title>
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark-theme');
+            window.addEventListener('DOMContentLoaded', () => {
+                document.body.classList.add('dark-theme');
+            });
+        }
+        const savedFontSize = localStorage.getItem('fontSize') || 'medium';
+        document.documentElement.classList.add(`font-${savedFontSize}`);
+    </script>
     <link rel="stylesheet" href="rela.css">
 </head>
 <body>

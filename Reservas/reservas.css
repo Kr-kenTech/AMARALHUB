@@ -20,128 +20,104 @@ body {
 }
 
 
-/* =========================
-   MENU LATERAL
-========================= */
+/* =====================================================
+   SIDEBAR
+===================================================== */
 
 .sidebar {
-    width: 277px;
-    min-height: 100vh;
-    background: #1852a5;
-    color: white;
-
-    display: flex;
-    flex-direction: column;
-
     position: fixed;
     left: 0;
     top: 0;
-    bottom: 0;
+    width: 240px;
+    height: 100vh;
+    background: #1450a3;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    padding: 24px 0;
 }
 
-
-/* LOGO */
-
 .logo {
-    height: 185px;
-
     display: flex;
     justify-content: center;
-    align-items: center;
-
-    padding: 20px;
+    padding-bottom: 20px;
 }
 
 .logo img {
-    width: 190px;
+    width: 120px;
     height: auto;
-    display: block;
+    object-fit: contain;
 }
 
-/* MENU */
-
 .menu {
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
-    gap: 5px;
-
-    padding: 15px 0;
+    gap: 4px;
 }
 
 .menu-item {
+    color: #ffffff;
     text-decoration: none;
-    color: white;
-
-    font-size: 23px;
-
-    padding: 12px 18px;
-    margin-left: 59px;
-
-    width: 127px;
-
-    border-radius: 9px;
-
-    transition: 0.2s;
+    font-size: 15px;
+    padding: 12px 24px;
+    transition: background 0.2s ease;
 }
 
 .menu-item:hover {
     background: rgba(255, 255, 255, 0.1);
 }
 
-.menu-item.ativo {
-    background: #143b99;
+.menu-item.active {
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.15);
+    border-left: 4px solid #ffffff;
 }
-
-
-/* PARTE INFERIOR */
 
 .sidebar-bottom {
     margin-top: auto;
-
-    background: #17379a;
-
-    padding: 38px 40px 28px;
-
-    min-height: 170px;
+    padding: 0 24px;
 }
 
-.professor {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-
-    font-size: 22px;
-}
-
-.icone-usuario {
-    width: 59px;
-    height: 59px;
-
-    border-radius: 50%;
-
-    background: #e4e9fa;
-    color: #17379a;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-size: 30px;
-}
-
-.sair {
+.usuario {
     display: flex;
     align-items: center;
     gap: 12px;
-
-    margin-top: 25px;
-
-    font-size: 22px;
-    cursor: pointer;
+    margin-bottom: 15px;
 }
 
-.icone-sair {
-    font-size: 36px;
+.usuario-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #1450a3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.usuario span {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.sair {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+}
+
+.sair:hover {
+    opacity: 1;
 }
 
 
@@ -165,7 +141,6 @@ h1 {
     font-weight: 700;
     margin-left: 2px;
 }
-
 
 /* =========================
    SEÇÃO: RESERVAS AO VIVO
