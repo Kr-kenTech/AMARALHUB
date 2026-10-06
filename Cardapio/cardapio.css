@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ==========================================================================
    AmaralHub - Estilos da Página de Cardápio e Ingredientes
    ========================================================================== */
@@ -481,7 +482,7 @@ body {
 
 .btn-edit:hover {
   color: #1e40af;
-}
+=======
 body {
     font-family: 'Inter', sans-serif;
     background-color: #f8fafc;
@@ -502,14 +503,15 @@ body {
     border-radius: 4px;
 }
 
-/* Estado do item ativo da navbar */
+/* Estado do item ativo da navbar lateral */
 .sidebar-item-active {
     background-color: #ffffff !important;
-    color: #1448b1 !important;
+    color: #0d47a1 !important;
     font-weight: 700 !important;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 
 .sidebar-item-active i {
     color: #1448b1 !important;
+>>>>>>> aa3895c586ae902ee1a69e3574ff5ddf1e4be9eb
 }
